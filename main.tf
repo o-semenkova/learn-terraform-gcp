@@ -8,11 +8,11 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("/home/osemenkova/gcp/osem-2504-38ba4ea91eb8.json")
+  credentials = file(var.credentials_file)
 
-  project = "osem-2504"
-  region  = "us-central1"
-  zone    = "us-central1-c"
+  project = var.project
+  region  = var.region
+  zone    = var.zone
 }
 
 resource "google_compute_network" "vpc_network" {
